@@ -10,7 +10,7 @@ import numpy as np
 import os
 
 # Open input file
-input_file_path = os.path.join(os.path.dirname(__file__), 'south_park_lines.txt')
+input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
 with open(input_file_path, 'r') as f:
     data = f.read()
 print(f"length of dataset in characters: {len(data):,}")
