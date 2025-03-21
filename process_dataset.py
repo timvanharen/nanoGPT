@@ -1,3 +1,8 @@
+# Now process the dataset from .csv to text by extracting the title coloumn as a single per episode. 
+# Then the next coloumn is the character that is speaking or a scene discription, 
+# place these with [] brackets and then paste the line under this subheading. 
+# After the line introduce a newline.
+
 import pandas as pd
 from alive_progress import alive_bar
 import os
@@ -35,7 +40,7 @@ with open('input.txt', 'w') as f:
         f.write(f"{df['Line'][i]}\n\n")
       
       #Print progress with a loading bar corresponding to the current line and the total length of df, permille
-      if i % len*(df)*0.001 == 0:
+      if i % len(df)*0.001 == 0:
         bar()
 
 # Close the document
