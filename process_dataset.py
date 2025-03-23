@@ -8,7 +8,7 @@ from alive_progress import alive_bar
 import os
 
 # navigate to content/nanoGPT/data/south_park_lines/ and list
-os.chdir('/content/nanoGPT/data/southpark_char/')
+os.chdir('/content/nanoGPT/data/southpark/')
 print(os.getcwd())
 print(os.listdir())
 
