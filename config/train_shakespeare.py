@@ -1,7 +1,7 @@
 # train a miniature character-level shakespeare model
 # good for debugging and playing on macbooks and such
 
-out_dir = 'out-southpark'
+out_dir = 'out-shakespeare'
 eval_interval = 5 # keep frequent because we'll overfit
 eval_iters = 10
 log_interval = 10 # don't print too too often
@@ -10,10 +10,10 @@ log_interval = 10 # don't print too too often
 always_save_checkpoint = True
 
 wandb_log = False # override via command line if you like
-wandb_project = 'southpark'
+wandb_project = 'shakespeare'
 wandb_run_name = 'mini-gpt'
 
-dataset = 'southpark'
+dataset = 'shakespeare'
 gradient_accumulation_steps = 1
 batch_size = 16
 block_size = 16 # context of up to 256 previous characters
