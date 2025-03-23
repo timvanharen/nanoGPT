@@ -5,7 +5,7 @@ import tiktoken
 import numpy as np
 import torch
 
-enc = tiktoken.get_encoding("gpt2") #"o200k_base")
+enc = tiktoken.get_encoding("o200k_base")
 
 # Funtion to load the data from the ipnput.txt file into a string
 def load_data():

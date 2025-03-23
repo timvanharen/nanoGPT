@@ -71,30 +71,22 @@ if load_meta:
 else:
     # ok let's assume gpt-2 encodings by default
     print("No meta.pkl found, assuming GPT-2 encodings...")
-    enc = tiktoken.get_encoding("gpt2") #"o200k_base")
+    enc = tiktoken.get_encoding("o200k_base")
 
 # encode the beginning of the prompt
 if start.startswith('FILE:'):
     with open(start[5:], 'r', encoding='utf-8') as f:
         start = f.read()
 
+# Prime the model with the prompt
 initial_sequence = '[Cartman] Carrots are good for eyesight, but so are other vegetables'
 start_ids = enc.encode(initial_sequence)
-
-print(start_ids)
-x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
-print("x", x)
 context = torch.tensor(start_ids, dtype=torch.long, device=device).reshape(-1,1)
-print("context", context)
+
 # run generation
 with torch.no_grad():
     with ctx:
         for k in range(num_samples):
-            print("x.dtype", x.dtype)
             y = model.generate(context, max_new_tokens, temperature=temperature, top_k=top_k)
-            print("x.dtype", y.dtype)
-            print("y: ", y)
-            print('------------------------')
-            input()
             print(enc.decode(y[0].tolist()))
             print('---------------')

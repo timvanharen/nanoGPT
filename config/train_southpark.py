@@ -3,7 +3,7 @@
 
 out_dir = 'out-southpark'
 eval_interval = 5 # keep frequent because we'll overfit
-eval_iters = 10
+eval_iters = 10 
 log_interval = 10 # don't print too too often
 
 # we expect to overfit on this small dataset, so only save when val improves
@@ -15,11 +15,11 @@ wandb_run_name = 'mini-gpt'
 
 dataset = 'southpark'
 gradient_accumulation_steps = 1
-batch_size = 16
+batch_size = 16 # 64
 block_size = 16 # context of up to 256 previous characters
 
 # baby GPT model :)
-n_layer = 3
+n_layer = 6
 n_head = 6
 n_embd = 192
 dropout = 0.2
