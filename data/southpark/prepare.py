@@ -5,7 +5,7 @@ import tiktoken
 import numpy as np
 import torch
 
-enc = tiktoken.get_encoding("o200k_base")
+enc = tiktoken.get_encoding("gpt2") #("o200k_base")
 
 # Funtion to load the data from the ipnput.txt file into a string
 def load_data():
@@ -21,7 +21,7 @@ def num_tokens_from_string(string: str, encoding_name: str) -> int:
     return num_tokens
 
 text=load_data()
-num_tokens_from_string(text, "o200k_base")
+num_tokens_from_string(text, "gpt2") #("o200k_base")
 
 def encode(text:str):
     return enc.encode(text)
@@ -29,7 +29,7 @@ def encode(text:str):
 def decode(tokens:np.array):
     return enc.decode(tokens)
 
-vocab_size = 200000
+vocab_size = 50257 #200000
 
 # encode with tiktoken gpt4 
 data = torch.tensor(encode(text), dtype=torch.long) # Encoding of the entire text, sotring it in a torch tensor
@@ -39,7 +39,7 @@ train_ids = data[:n]
 val_ids = data[n:]
 print(f"train has {len(train_ids):,} tokens")
 print(f"val has {len(val_ids):,} tokens")
-vocab_size = 200000
+vocab_size = 50257 #200000 
 
 # export to bin files
 train_ids = np.array(train_ids, dtype=np.uint32)

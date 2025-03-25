@@ -11,7 +11,7 @@ import os
 
 # Open input file
 input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
-with open(input_file_path, 'r') as f:
+with open(input_file_path, 'r', encoding="utf-8") as f:
     data = f.read()
 print(f"length of dataset in characters: {len(data):,}")
 
@@ -24,10 +24,10 @@ print(f"vocab size: {vocab_size:,}")
 # create a mapping from characters to integers
 stoi = { ch:i for i,ch in enumerate(chars) }
 itos = { i:ch for i,ch in enumerate(chars) }
-# def encode(s):
-#     return [stoi[c] for c in s] # encoder: take a string, output a list of integers
-# def decode(l):
-#     return ''.join([itos[i] for i in l]) # decoder: take a list of integers, output a string
+def encode(s):
+    return [stoi[c] for c in s] # encoder: take a string, output a list of integers
+def decode(l):
+    return ''.join([itos[i] for i in l]) # decoder: take a list of integers, output a string
 
 # create the train and test splits
 n = len(data)

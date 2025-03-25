@@ -334,6 +334,7 @@ while True:
     # termination conditions
     if iter_num > max_iters:
         break
+
 # Print total time taken
 print(f"Total time taken: {time.time() - start_time:.2f}s")
 
